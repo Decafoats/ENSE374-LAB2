@@ -37,12 +37,23 @@ public class ListElement
 	public void addElement(ListElement le)
 	{
 		ListElement temp = this;
-		while (temp.next != null)
+		ListElement preTemp = null;
+		
+		if (this.next == null)
 		{
-			temp = temp.next;
-			this.next = temp;
+			this.next = le;
+		
 		}
-		this 
+		
+		else
+		{
+			while (temp.next != null)
+			{
+				temp = temp.next;
+			}
+			
+			temp.next = le;
+		}
 	}
 	
 	public ListElement getElement(int index)
@@ -56,23 +67,41 @@ public class ListElement
 			counter++;
 		}
 		
-		return temp.data;
+		return temp;
 	}
 	
 	public ListElement deleteElement(int index) 
 	{
 		int counter = 0;
 		ListElement temp = this;
+		ListElement preTemp = temp;
 		
-		while (counter != index)
+		while (counter != index && temp.next != null)
 		{
+			preTemp = temp;
 			temp = temp.next;
 			counter++;
 		}
 		
+		preTemp = temp.next;
 		temp = temp.next;
 		this.next = temp;
+		
+		return this;
 	}
+	
+	public void printLinkedListHead()
+    { 
+        ListElement temp = this; 
+   
+        System.out.print("LinkedList: "); 
+   
+        while (temp != null) 
+		{ 
+            System.out.print(temp.data + " "); 
+            temp = temp.next; 
+        } 
+    } 
 	
 }	
 	
