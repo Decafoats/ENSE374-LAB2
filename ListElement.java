@@ -40,8 +40,9 @@ public class ListElement
 		while (temp.next != null)
 		{
 			temp = temp.next;
+			this.next = temp;
 		}
-		temp.next = new ListElement(data, null);
+		this 
 	}
 	
 	public ListElement getElement(int index)
@@ -66,12 +67,14 @@ public class ListElement
 		while (counter != index)
 		{
 			temp = temp.next;
-			
+			counter++;
 		}
 		
+		temp = temp.next;
+		this.next = temp;
 	}
 	
-	
+}	
 	
 	
 	
