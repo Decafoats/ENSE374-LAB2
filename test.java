@@ -30,7 +30,7 @@ public class test
 		element1.addElement(element4);
 		element1.addElement(element5);
 		
-		element1.deleteElement(3);
+		element1.deleteElement(4);
 	    element1.printLinkedListHead();
 	}
 	

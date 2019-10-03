@@ -72,22 +72,20 @@ public class ListElement
 	
 	public ListElement deleteElement(int index) 
 	{
-		int counter = 0;
-		ListElement temp = this;
-		ListElement preTemp = temp;
+		int counter = 1;
+		ListElement head = this;
+		ListElement delete = this.next;
 		
-		while (counter != index && temp.next != null)
+		while (counter != index)
 		{
-			preTemp = temp;
-			temp = temp.next;
+			head = head.next;
+			delete = delete.next;
 			counter++;
 		}
 		
-		preTemp = temp.next;
-		temp = temp.next;
-		this.next = temp;
+		head.next = delete.next;
 		
-		return this;
+		return head;
 	}
 	
 	public void printLinkedListHead()
