@@ -3,8 +3,9 @@
 	Name: Xiao Chu Zhao
 	SID: 200386192
 	
-	Run.java
-	Date: September 26, 2019
+	test.java
+	Date: October 3, 2019
+	Phase 2
 */
 
 import java.util.*; 

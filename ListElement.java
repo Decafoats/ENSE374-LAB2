@@ -1,3 +1,4 @@
+	//Phase 2
 	import java.util.*; 
 
 	public class ListElement
@@ -72,25 +73,32 @@
 		
 		public ListElement deleteElement(int index) 
 		{
-			int counter = 1;
-			ListElement head = this;
-			ListElement delete = this.next;
-			
-			if (index == 0)
+          
+          	if (index == 0)
 			{
-				head = this.next;
-				this.next = head;
-			}
-			while (counter != index)
-			{
-				head = head.next;
-				delete = delete.next;
-				counter++;
-			}
+              ListElement head = this;
+			  head = head.next;
+              return head;
+            }
+
+            else
+            {
+              int counter = 1;
+				ListElement head = this;
+				ListElement delete = this.next;
+              
+              while (counter != index)
+              {
+                  head = head.next;
+                  delete = delete.next;
+                  counter++;
+              }
+
+              head.next = delete.next;
+              return head;
+            }
 			
-			head.next = delete.next;
 			
-			return head;
 		}
 		
 		public void printLinkedListHead()
