@@ -103,9 +103,17 @@
                   counter++;
               }
 				
-              point = delete.next;
-              point.previous = head;
-              head.next = point;
+				if (delete.next != null)
+				{
+				  point = delete.next;
+				  point.next = delete.next.next;
+				  point.previous = head;
+				  head.next = point;
+				}
+				else
+				{
+					head.next = null;
+				}
               return head;
             }
 			
