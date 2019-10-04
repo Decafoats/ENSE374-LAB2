@@ -82,9 +82,10 @@
 		{
           
           	if (index == 0)
-			{
+            {
               ListElement head = this;
 			  head = head.next;
+              head.previous = null;
               return head;
             }
 
@@ -93,6 +94,7 @@
               int counter = 1;
 				ListElement head = this;
 				ListElement delete = this.next;
+                ListElement point = this;
               
               while (counter != index)
               {
@@ -100,11 +102,12 @@
                   delete = delete.next;
                   counter++;
               }
-
-              head.next = delete.next;
+				
+              point = delete.next;
+              point.previous = head;
+              head.next = point;
               return head;
             }
-			
 			
 		}
 		
@@ -121,6 +124,26 @@
 			} 
 		} 
 		
+		public void printLinkedListTail()
+		{ 
+			ListElement temp = this; 
+	   
+			while (temp.next != null) 
+			{ 
+				temp = temp.next; 
+			} 
+          
+          	ListElement point = temp;
+          	System.out.print("LinkedList: "); 
+          
+          	while (point.previous != null)
+            {
+              System.out.print(point.data + " "); 
+              point = point.previous;
+              
+            }
+          	 System.out.print(point.data + " "); 
+		} 
 	}	
 		
 		
