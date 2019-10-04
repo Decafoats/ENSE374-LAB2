@@ -38,11 +38,15 @@
 		public void addElement(ListElement le)
 		{
 			ListElement temp = this;
+            ListElement point= this;
 			ListElement preTemp = null;
 			
 			if (this.next == null)
 			{
-				this.next = le;
+                point = le;
+                point.next = null;
+              	point.previous = this;
+                this.next = point;		
 			
 			}
 			
@@ -52,8 +56,11 @@
 				{
 					temp = temp.next;
 				}
-				
-				temp.next = le;
+              
+              	point = le;
+              	point.next = null;
+                point.previous = temp;
+				temp.next = point;
 			}
 		}
 		
